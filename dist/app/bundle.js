@@ -52,42 +52,67 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 32);
 	
+	$(document).ready(function () {
+		// $.getJSON("http://quotes.stormconsultancy.co.uk/random.json", function(response) {
+	
+		//       var qText = response.quote;
+		//       var qAuth = response.author;
+		//       console.log(qText, qAuth);
+		// }
+		$.ajax({
+			url: "http://rest-service.guides.spring.io/greeting"
+		}).then(function (data) {
+			$('.greeting-id').append(data.id);
+			$('.greeting-content').append(data.content);
+		});
+	});
+	// var $ = require('jquery');
+	// require('jquery/src/core/init');
+	// require('jquery/src/manipulation');
+	
+	
 	// class Layout extends React.Component {
 	
-	alert('shpout');
-	// 	backgroundColor () {
-	// 		var colorArray = ['green', 'pink', 'yellow', 'blue', 'brown'];
-	// 		var randomNumber = Math.floor(Math.random() * colorArray.length);
-	// 		document.body.style.backgroundColor = colorArray[randomNumber];
-	// 		console.log(randomNumber);
-	// 	}
-	
-	// 	render() {
-	// 		return (
-	// 			<div>
-	// 				<h1>Color Changer</h1>
-	// 				<button onClick={this.backgroundColor}>Change Color</button>
-	// 			</div>
-	// 		);
-	// 	}
+	// backgroundColor () {
+	// 	var colorArray = ['green', 'pink', 'yellow', 'blue', 'brown'];
+	// 	var randomNumber = Math.floor(Math.random() * colorArray.length);
+	// 	document.body.style.backgroundColor = colorArray[randomNumber];
+	// 	console.log(randomNumber);
 	// }
+	
+	// render() {
+	// 	return (
+	// 		<div>
+	// 			<h1>Color Changer</h1>
+	// 			<button onClick={this.backgroundColor}>Change Color</button>
+	// 		</div>
+	// 	);
+	// }
+	
+	// 	constructor() {
+	//   	super();
+	//  		 this.state={items:[]};
+	//   }
+	//   componentDidMount(){
+	//   	fetch('http://api.forismatic.com/api/1.0/')
+	//  		.then(result=>result.json())
+	//     .then(items=>this.setState({items}))
+	//   }
+	//   render() {
+	//   	return(
+	//     	<ul>
+	//           {
+	//           	// this.state.items.length ?
+	//           	this.state.items.map(item=><li key={item.id}>{item.quoteText}</li>) 
+	//             // : <li>Loading...</li>
+	//           }
+	//       </ul>
+	//    )
+	// }
+	
 	
 	// const app = document.getElementById('app');
 	// ReactDOM.render(<Layout/>, app);
-	
-	var Greeting = React.createClass({
-		displayName: 'Greeting',
-	
-		render: function render() {
-			return React.createElement(
-				'p',
-				null,
-				'Hello, Todo'
-			);
-		}
-	});
-	
-	ReactDOM.render(React.createElement(Greeting, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
