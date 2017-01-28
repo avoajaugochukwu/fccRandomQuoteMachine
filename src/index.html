@@ -8,19 +8,24 @@
 
 
 	<body>
-		<div id="app">
 
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 quote-main-board">
+					<!-- jQuery component -->
+						<h3 class="greeting-id">There are only two hard things in Computer Science:
+						 cache invalidation, naming things and off-by-one errors.</h3>
+            <p class="greeting-content">Phil Karlton</p>
+
+            <a class="button" id="tweet-quote" title="Tweet this quote!" target="_blank">
+            	<img src="http://apdevv.com/photos/Twitter0.png">
+    				</a>
+					<!-- React component -->
+					<div id="app"></div>
+				</div>
+			</div>
 		</div>
-
-
-		<div>
-            <p class="greeting-id">The ID is </p>
-            <p class="greeting-content">The content is </p>
-        </div>
 	</body>
-	<script
-  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
 	<script src="/app/bundle.js"></script>
 </html>

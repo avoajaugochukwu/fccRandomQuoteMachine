@@ -1,50 +1,50 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
-	var quote;
+
+var data = {};
+
+
 $(document).ready(function() {
 
 
-
-
-
 class Layout extends React.Component {
-
-	changeBackgroundAndQuote () {
-		var colorArray = ['green', 'pink', 'yellow', 'blue', 'brown'];
-		var randomNumber = Math.floor(Math.random() * colorArray.length);
-		document.body.style.backgroundColor = colorArray[randomNumber];
-
-
-			$.getJSON({
-	        url: "http://quotes.stormconsultancy.co.uk/random.json"
-	  }).then(function(data) {
-
-	  		quote = data.quote;
-		     // $('.greeting-id').append(data.quote);
-		     $('.greeting-content').append(data.author);
-		  });
-
+	constructor(props) {
+		super(props);
+		this.state = {quoter: "", author: ""};
 	}
 
-
-
-	backgroundColor () {
-		var colorArray = ['green', 'pink', 'yellow', 'blue', 'brown'];
-		var randomNumber = Math.floor(Math.random() * colorArray.length);
-		document.body.style.backgroundColor = colorArray[randomNumber];
-		console.log(randomNumber);
-	}
 
 	render() {
 		return (
 			<div>
-				<h1>Color Changer</h1>
-				<p>This paragraph {this.props.quote}</p>
-				<button onClick={this.backgroundColor}>Change Color</button>
+				
+				<button className="btn btn-lg btn-primary" onClick={this.changeBackgroundAndQuote}>Change Color</button>
 			</div>
 		);
 	}
+
+
+	changeBackgroundAndQuote () {
+		var colorArray = ['#82E0AA', '#5DADE2', '#E8DAEF', '#F6DDCC', '#AEB6BF'];
+		var randomNumber = Math.floor(Math.random() * colorArray.length);
+		document.body.style.backgroundColor = colorArray[randomNumber];
+			$.getJSON({
+	        url: "http://quotes.stormconsultancy.co.uk/random.json"
+	  }).then(function(data) {
+	  		$('.greeting-id').empty();
+		    $('.greeting-content').empty();
+
+
+		    $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + data.quote + '" ' + data.author));
+		    $('.greeting-id').append(data.quote);
+		    $('.greeting-content').append(data.author);
+		  });
+
+	  console.log(data.quote);
+	}
+
+
 }
 
 
